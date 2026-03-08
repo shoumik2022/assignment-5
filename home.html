@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker</title>
+</head>
+
+<!-- tailwind+daisy  -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- fonts  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- icons  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1">
+                <div class="flex">
+                    <a class="btn btn-ghost text-xl"> <i class="fa-brands fa-github text-5xl"></i>GitHub Issues
+                        Tracker</a>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <label class="input input-bordered flex items-center gap-2 w-24 md:w-auto">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="grow" placeholder="Search issues...." />
+                </label>
+                <div class="dropdown dropdown-end">
+                    <button class="btn btn-primary text-x">+ New Issue</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <div class="flex mt-5 mb-4 gap-2 justify-right">
+            <button class="btn  btn-primary" onclick="filterStatus('all')">All</button>
+            <button class="btn btn-outline btn-primary" onclick="filterStatus('closed')">Closed</button>
+            <button class="btn btn-outline btn-primary" onclick="filterStatus('open')">Open</button>
+        </div>
+        <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white border border-gray-100 p-6 rounded-xl shadow-sm gap-4">
+
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 flex items-center justify-center bg-indigo-50 rounded-full">
+                    <img src="assets/Aperture.png" alt="Aperture" class="w-full h-full object-cover rounded-full">
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">50 Issues</h2>
+                    <p class="text-slate-500 text-sm">Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+                    <span class="text-slate-600 text-sm font-medium">Open</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+                    <span class="text-slate-600 text-sm font-medium">Closed</span>
+                </div>
+            </div>
+
+        </div>
+        <div id="issuesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+            <div
+                class="card w-full sm:w-80 bg-base-100 shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition">
+                <div class="card-body p-5">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-8 h-8 rounded-full border-2 border-dashed border-success flex items-center justify-center">
+                            <div class="w-4 h-4 rounded-full "> <img src="assets/Open-Status.png" alt="Open Status"
+                                    class="w-full h-full object-cover rounded-full"></div>
+                        </div>
+                        <span
+                            class="badge badge-outline badge-error text-[10px] font-bold px-4 py-1.5 uppercase tracking-wider">
+                            High
+                        </span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-bold text-base-content leading-tight">
+                            Fix Navigation Menu On Mobile Devices
+                        </h3>
+                        <p class="mt-2 text-sm text-base-content/70 leading-relaxed line-clamp-3">
+                            The navigation menu doesn't collapse properly on mobile devices. It overlaps other content
+                            and creates scrolling issues.
+                        </p>
+                    </div>
+                    <div class="mt-5 flex flex-wrap gap-2">
+                        <div class="badge badge-outline badge-error flex items-center gap-1.5">
+                            <i class="fa-solid fa-bug text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase">Bug</span>
+                        </div>
+                        <div class="badge badge-outline badge-warning flex items-center gap-1.5">
+                            <i class="fa-solid fa-globe text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase">Help Wanted</span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" px-5 py-4 border-t border-base-200 bg-base-100">
+                    <p class="text-sm text-base-content/50">#1 by john_doe</p>
+                    <p class="text-sm text-base-content/50 mt-1">1/15/2024</p>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>
